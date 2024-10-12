@@ -1,0 +1,16 @@
+// See https://www.typescriptlang.org/tsconfig/
+{
+  "include": [
+    "src/**/*.ts"
+  ],
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "ES2020",
+    "outDir": "dist",
+    "skipLibCheck": true,
+    "strict": true,
+    // change target will also change lib's default setting when lib is not set manually
+    "target": "ES2020"
+  }
+}
