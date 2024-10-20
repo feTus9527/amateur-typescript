@@ -9,7 +9,7 @@ type ApiRequest<T, U = "GET"> = {
 type TSConfig<T = { strict: true }> = T;
 /// Input END
 
-module Test {
+namespace DefaultGenericArgumentsTest {
   type test_ApiRequest_explicitPost = Expect<
     Equal<ApiRequest<string, "POST">, { data: string; method: "POST" }>
   >;

@@ -26,7 +26,7 @@ const casettesByArtist = {
   "Whitney Houston": 3,
 };
 
-module Test {
+namespace KeyofTest {
   const getCasetteCount = (artist: Artist) => {
     return casettesByArtist[artist];
   };
@@ -34,6 +34,6 @@ module Test {
   // should work just fine for a valid artist
   getCasetteCount("Mariah Carey");
   // should error for artists that are not part of the original
-  // @ts-expect-error
+  // @ts-expect-error the input is not in keyof casettesByArtist constant
   getCasetteCount("Red Hot Chili Peppers");
 }

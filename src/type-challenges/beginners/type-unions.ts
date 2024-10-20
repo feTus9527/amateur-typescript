@@ -145,7 +145,7 @@ const positionElement = (position: Position): AbsolutePosition => {
   }
 };
 
-module Test {
+namespace TypeUnionsTest {
   type test_topLeft = Expect<Extends<"topLeft", Position>>;
   type test_top = Expect<Extends<"top", Position>>;
   type test_topRight = Expect<Extends<"topRight", Position>>;

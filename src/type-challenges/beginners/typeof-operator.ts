@@ -51,7 +51,7 @@ const d3ChartConfig = {
   },
 };
 
-module Test {
+namespace TypeofTest {
   type test_Width = Expect<Equal<Width, 700>>;
 
   type test_Margin = Expect<

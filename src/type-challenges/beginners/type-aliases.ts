@@ -17,7 +17,7 @@ type Payload = {
 };
 /// Input END
 
-module Test {
+namespace TypeAliasesTest {
   type test_Name = Expect<Equal<Name, string>>;
   type test_Year = Expect<Equal<Year, number>>;
   type test_Count = Expect<Equal<Count, number>>;

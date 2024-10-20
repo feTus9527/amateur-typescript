@@ -10,7 +10,7 @@ type CreateLogger<T extends (a: number) => void> = {
 };
 /// Input END
 
-module Test {
+namespace GenericTypeConstraintsTest {
   type test_AllowStringString = Expect<Equal<AllowString<string>, string>>;
 
   // @ts-expect-error invalid input

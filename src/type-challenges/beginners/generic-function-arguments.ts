@@ -8,7 +8,7 @@ const identity = <T>(args: T) => {
 const mapArray = <T, U>(arr: Array<T>, fn: (item: T) => U) => arr.map(fn);
 /// Input END
 
-module Test {
+namespace GenericFunctionArgumentsTest {
   /** temporary */
   const expect = <T>(a: T) => ({
     toEqual: (b: T) => a === b,

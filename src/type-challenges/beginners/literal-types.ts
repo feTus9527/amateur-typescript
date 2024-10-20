@@ -26,7 +26,7 @@ const literalFunction = (a: number, b: string) => {
 };
 /// Input End
 
-module Test {
+namespace LiteralTypesTest {
   type test_LiteralString = Expect<Equal<LiteralString, "chocolate chips">>;
 
   type test_LiteralTrue = Expect<Equal<LiteralTrue, true>>;

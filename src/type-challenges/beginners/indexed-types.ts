@@ -15,7 +15,7 @@ type Donations = {
   "Angelina Jolie and Brad Pitt": 100_000_000;
 };
 
-module Test {
+namespace IndexedTypesTest {
   type test_TheCoolestCarEverMade = Expect<
     Equal<TheCoolestCarEverMade, "Toyota Corolla">
   >;

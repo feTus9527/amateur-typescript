@@ -14,7 +14,7 @@ type CharactersById = {
 };
 /// Input END
 
-module Test {
+namespace IndexSignaturesTest {
   const groceryList: GroceryList = {
     carrots: 5,
     potatoes: 12,

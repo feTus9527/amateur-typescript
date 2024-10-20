@@ -6,7 +6,7 @@ type MyReadonly<T> = {
 };
 /// Input END
 
-module Test {
+namespace ReadonlyTest {
   type cases = [Expect<Equal<MyReadonly<Todo1>, Readonly<Todo1>>>];
 
   interface Todo1 {

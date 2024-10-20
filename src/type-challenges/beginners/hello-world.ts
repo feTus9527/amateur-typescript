@@ -4,6 +4,6 @@
 type HelloWorld = string;
 /// Input END
 
-module Test {
+namespace HelloWorldTest {
   type cases = [Expect<NotAny<HelloWorld>>, Expect<Equal<HelloWorld, string>>];
 }

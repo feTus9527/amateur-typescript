@@ -15,7 +15,7 @@ type CapreseSalad = {
 };
 /// Input END
 
-module Test {
+namespace GenericTypeArgumentsTest {
   type test_CapreseSaladName = Expect<
     Equal<CapreseSalad["name"], "Caprese Salad">
   >;

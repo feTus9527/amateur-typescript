@@ -10,7 +10,7 @@ type MovieInfoByGenre<T> = {
 };
 /// Input END
 
-module Test {
+namespace MappedObjectTypesTest {
   type MoviesByGenre = {
     action: "Die Hard";
     comedy: "Groundhog Day";

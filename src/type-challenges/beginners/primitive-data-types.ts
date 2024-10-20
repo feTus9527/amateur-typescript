@@ -28,7 +28,7 @@ musicianInfo({
 });
 /// Input End
 
-module Test {
+namespace PrimitiveDataTypesTest {
   playSong("Demiurge", 2012);
   // @ts-expect-error this is incorrect because the first argument should not be a number
   playSong(8675309, 1982);
