@@ -17,9 +17,9 @@ namespace LengthOfTupleTest {
   type cases = [
     Expect<Equal<Length<typeof tesla>, 4>>,
     Expect<Equal<Length<typeof spaceX>, 5>>,
-    // @ts-expect-error
+    // @ts-expect-error 5 doesn't have length property
     Length<5>,
-    // @ts-expect-error
+    // @ts-expect-error string has length property, but not a correct example of this tuple test
     Length<"hello world">,
   ];
 }
