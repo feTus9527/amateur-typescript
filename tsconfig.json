@@ -10,7 +10,9 @@
     // change target will also change lib's default setting when lib is not set manually
     "target": "ES2020",
     "typeRoots": [
-      "./types"
-    ]
+      "types",
+      "node_modules"
+    ],
+    "noUnusedLocals": false
   }
 }
