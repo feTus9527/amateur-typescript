@@ -13,8 +13,7 @@ pnpm install
 ## Directory Tree
 
 ```text
-amateur-webpack/ 
-├── config/
+amateur-typescript/
 ├── dist_demo/
 ├── extensions/
 ├── src/
@@ -33,3 +32,4 @@ amateur-webpack/
 ├── pnpm-lock.yaml
 └── postcss.config.js
 ```
+
