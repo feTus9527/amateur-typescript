@@ -1,7 +1,7 @@
 // https://typehero.dev/challenge/exclude
-// FIXME
+
 /// Input START
-type MyExclude<T, U> = any;
+type MyExclude<T, U> = T extends U ? never : T;
 /// Input END
 
 namespace ExcludeTest {
