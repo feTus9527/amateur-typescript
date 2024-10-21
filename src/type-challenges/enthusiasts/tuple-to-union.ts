@@ -1,7 +1,7 @@
 // https://typehero.dev/challenge/tuple-to-union
-// FIXME
+
 /// Input START
-type TupleToUnion<T> = any;
+type TupleToUnion<T extends readonly any[]> = T[number];
 /// Input END
 
 namespace TupleToUnionTest {
