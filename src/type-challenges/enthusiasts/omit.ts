@@ -1,7 +1,7 @@
 // https://typehero.dev/challenge/omit
-// FIXME
+
 /// Input START
-type MyOmit<T, K> = any;
+type MyOmit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
 /// Input END
 
 namespace OmitTest {
@@ -11,7 +11,7 @@ namespace OmitTest {
     Expect<Equal<Expected3, MyOmit<Todo1, "description" | "completed">>>,
   ];
 
-  // @ts-expect-error
+  // @ts-expect-error invalid is not a valid property of type Todo
   type error = MyOmit<Todo, "description" | "invalid">;
 
   interface Todo {
