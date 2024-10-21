@@ -14,22 +14,15 @@ pnpm install
 
 ```text
 amateur-typescript/
-├── dist_demo/
-├── extensions/
 ├── src/
-│  ├── assets/
-│  ├── loader-demo/
-│  ├── perform-demo/
-│  ├── plugin-demo/
-│  └── index.js
-├── .browserslistrc
+│  ├── type-challenges/
+│  └── index.ts
+├── types/
+├── .eslintrc.json
 ├── .gitignore
 ├── LICENSE
-├── README.md
-├── eslint.config.mjs
-├── index.html
 ├── package.json
 ├── pnpm-lock.yaml
-└── postcss.config.js
+├── README.md
+└── tsconfig.json
 ```
-
