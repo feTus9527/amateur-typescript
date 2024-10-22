@@ -1,7 +1,9 @@
 // https://typehero.dev/challenge/get-return-type
-// FIXME
+
 /// Input START
-type MyReturnType<T> = any;
+type MyReturnType<T extends Function> = T extends (...args: any[]) => infer R
+  ? R
+  : never;
 /// Input END
 
 namespace GetReturnTypeTest {
