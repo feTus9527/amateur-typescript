@@ -1,7 +1,15 @@
 // https://typehero.dev/challenge/awaited
-// FIXME
+
 /// Input START
-type MyAwaited<T> = any;
+type MyAwaited<T> = T extends null | undefined
+  ? T
+  : T extends {
+        then(onfulfilled: infer F, ...args: infer _): any;
+      }
+    ? F extends (v: infer V, ...rest: infer _) => any
+      ? MyAwaited<V>
+      : never
+    : T;
 /// Input END
 
 namespace AwaitedTest {
