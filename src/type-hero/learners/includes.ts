@@ -1,7 +1,16 @@
 // https://typehero.dev/challenge/includes
-// FIXME
+
 /// Input START
-type Includes<T extends readonly any[], U> = any;
+type Equals<T, U> =
+  (<V>() => V extends T ? 1 : 2) extends <V>() => V extends U ? 1 : 2
+    ? true
+    : false;
+
+type Includes<T extends readonly any[], U> = T extends [infer F, ...infer R]
+  ? Equals<F, U> extends true
+    ? true
+    : Includes<R, U>
+  : false;
 /// Input END
 
 namespace IncludesTest {
