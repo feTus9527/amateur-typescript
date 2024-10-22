@@ -1,12 +1,12 @@
 // https://typehero.dev/challenge/shift
-// FIXME
+
 /// Input START
-type Shift<T> = any;
+type Shift<T extends any[]> = T extends [infer F, ...infer _] ? _ : T;
 /// Input END
 
 namespace ShiftTest {
   type cases = [
-    // @ts-expect-error
+    // @ts-expect-error can only an array shift
     Shift<unknown>,
     Expect<Equal<Shift<[]>, []>>,
     Expect<Equal<Shift<[1]>, []>>,
