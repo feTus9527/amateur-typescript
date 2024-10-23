@@ -1,12 +1,15 @@
 // https://typehero.dev/challenge/drop-char
-// FIXME
+
 /// Input START
-type DropChar<S, C> = any;
+type DropChar<
+  S extends string,
+  C extends string,
+> = S extends `${infer X}${C}${infer Y}` ? DropChar<`${X}${Y}`, C> : S;
 /// Input END
 
 namespace DropCharTest {
   type cases = [
-    // @ts-expect-error
+    // @ts-expect-error empty string cause infinity recursion
     Expect<Equal<DropChar<"butter fly!", "">, "butterfly!">>,
     Expect<Equal<DropChar<"butter fly!", " ">, "butterfly!">>,
     Expect<Equal<DropChar<"butter fly!", "!">, "butter fly">>,
