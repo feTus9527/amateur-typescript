@@ -1,7 +1,7 @@
 // https://typehero.dev/challenge/length-of-string-3
 // FIXME
 /// Input START
-type LengthOfString<S extends string> = any;
+type LengthOfString3<S extends string> = any;
 /// Input END
 
 namespace LengthOfString3Test {
@@ -61,25 +61,25 @@ namespace LengthOfString3Test {
       : never;
 
   type cases = [
-    Expect<Equal<LengthOfString<Gened<"0000000">>, 0>>,
-    Expect<Equal<LengthOfString<Gened<"0000001">>, 1>>,
-    Expect<Equal<LengthOfString<Gened<"0000002">>, 2>>,
-    Expect<Equal<LengthOfString<Gened<"0000003">>, 3>>,
-    Expect<Equal<LengthOfString<Gened<"0000004">>, 4>>,
-    Expect<Equal<LengthOfString<Gened<"0000005">>, 5>>,
-    Expect<Equal<LengthOfString<Gened<"0000055">>, 55>>,
-    Expect<Equal<LengthOfString<Gened<"0000555">>, 555>>,
-    Expect<Equal<LengthOfString<Gened<"0005555">>, 5555>>,
-    Expect<Equal<LengthOfString<Gened<"0055555">>, 55555>>,
-    Expect<Equal<LengthOfString<Gened<"8464592">>, 8464592>>,
-    Expect<Equal<LengthOfString<Gened<"1373690">>, 1373690>>,
-    Expect<Equal<LengthOfString<Gened<"1707793">>, 1707793>>,
-    Expect<Equal<LengthOfString<Gened<"0196268">>, 196268>>,
-    Expect<Equal<LengthOfString<Gened<"6646734">>, 6646734>>,
-    Expect<Equal<LengthOfString<Gened<"0538159">>, 538159>>,
-    Expect<Equal<LengthOfString<Gened<"0058901">>, 58901>>,
-    Expect<Equal<LengthOfString<Gened<"8414001">>, 8414001>>,
-    Expect<Equal<LengthOfString<Gened<"1740697">>, 1740697>>,
-    Expect<Equal<LengthOfString<Gened<"2281441">>, 2281441>>,
+    Expect<Equal<LengthOfString3<Gened<"0000000">>, 0>>,
+    Expect<Equal<LengthOfString3<Gened<"0000001">>, 1>>,
+    Expect<Equal<LengthOfString3<Gened<"0000002">>, 2>>,
+    Expect<Equal<LengthOfString3<Gened<"0000003">>, 3>>,
+    Expect<Equal<LengthOfString3<Gened<"0000004">>, 4>>,
+    Expect<Equal<LengthOfString3<Gened<"0000005">>, 5>>,
+    Expect<Equal<LengthOfString3<Gened<"0000055">>, 55>>,
+    Expect<Equal<LengthOfString3<Gened<"0000555">>, 555>>,
+    Expect<Equal<LengthOfString3<Gened<"0005555">>, 5555>>,
+    Expect<Equal<LengthOfString3<Gened<"0055555">>, 55555>>,
+    Expect<Equal<LengthOfString3<Gened<"8464592">>, 8464592>>,
+    Expect<Equal<LengthOfString3<Gened<"1373690">>, 1373690>>,
+    Expect<Equal<LengthOfString3<Gened<"1707793">>, 1707793>>,
+    Expect<Equal<LengthOfString3<Gened<"0196268">>, 196268>>,
+    Expect<Equal<LengthOfString3<Gened<"6646734">>, 6646734>>,
+    Expect<Equal<LengthOfString3<Gened<"0538159">>, 538159>>,
+    Expect<Equal<LengthOfString3<Gened<"0058901">>, 58901>>,
+    Expect<Equal<LengthOfString3<Gened<"8414001">>, 8414001>>,
+    Expect<Equal<LengthOfString3<Gened<"1740697">>, 1740697>>,
+    Expect<Equal<LengthOfString3<Gened<"2281441">>, 2281441>>,
   ];
 }
