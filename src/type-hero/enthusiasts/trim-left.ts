@@ -1,7 +1,11 @@
 // https://typehero.dev/challenge/trim-left
-// FIXME
+
 /// Input START
-type TrimLeft<S extends string> = any;
+type TrimLeft<S extends string> = S extends `${infer L}${infer R}`
+  ? L extends " " | "\n" | "\t" | "\r"
+    ? TrimLeft<R>
+    : S
+  : S;
 /// Input END
 
 namespace TrimLeftTest {
