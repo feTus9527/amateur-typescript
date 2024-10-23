@@ -1,7 +1,15 @@
 // https://typehero.dev/challenge/all
-// FIXME
+
 /// Input START
-type All = any;
+type AllEqual<A, B> =
+  (<T>() => T extends A ? 1 : 2) extends <T>() => T extends B ? 1 : 2
+    ? true
+    : false;
+type All<T extends any[], U extends any> = T extends [infer L, ...infer R]
+  ? AllEqual<U, L> extends true
+    ? All<R, U>
+    : false
+  : true;
 /// Input END
 
 namespace AllTest {
