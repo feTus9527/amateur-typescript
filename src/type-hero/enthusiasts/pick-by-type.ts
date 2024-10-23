@@ -1,7 +1,9 @@
 // https://typehero.dev/challenge/pickbytype
-// FIXME
+
 /// Input START
-type PickByType<T, U> = any;
+type PickByType<T, U> = {
+  [K in keyof T as Equal<T[K], U> extends true ? K : never]: T[K];
+};
 /// Input END
 
 namespace PickByTypeTest {
@@ -12,6 +14,7 @@ namespace PickByTypeTest {
     isEnable: boolean;
   }
 
+  type a = PickByType<Model, boolean>;
   type cases = [
     Expect<
       Equal<
