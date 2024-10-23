@@ -1,7 +1,9 @@
 // https://typehero.dev/challenge/reverse
-// FIXME
+
 /// Input START
-type Reverse<T> = any;
+type Reverse<T extends any[]> = T extends [infer L, ...infer R]
+  ? [...Reverse<R>, L]
+  : T;
 /// Input END
 
 namespace ReverseTest {
@@ -12,9 +14,9 @@ namespace ReverseTest {
   ];
 
   type errors = [
-    // @ts-expect-error
+    // @ts-expect-error not an array
     Reverse<"string">,
-    // @ts-expect-error
+    // @ts-expect-error not an array
     Reverse<{ key: "value" }>,
   ];
 }
