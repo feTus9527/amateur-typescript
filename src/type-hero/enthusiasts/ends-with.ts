@@ -1,7 +1,9 @@
 // https://typehero.dev/challenge/endswith
-// FIXME
+
 /// Input START
-type EndsWith<T extends string, U extends string> = any;
+type EndsWith<T extends string, U extends string> = T extends `${infer _}${U}`
+  ? true
+  : false;
 /// Input END
 
 namespace EndsWithTest {
