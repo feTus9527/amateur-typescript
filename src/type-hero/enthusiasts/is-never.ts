@@ -1,7 +1,7 @@
 // https://typehero.dev/challenge/isnever
-// FIXME
+
 /// Input START
-type IsNever<T> = any;
+type IsNever<T> = [T] extends [never] ? true : false;
 /// Input END
 
 namespace IsNeverTest {
