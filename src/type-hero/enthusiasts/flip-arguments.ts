@@ -1,7 +1,14 @@
 // https://typehero.dev/challenge/flip-arguments
-// FIXME
+
 /// Input START
-type FlipArguments<T> = any;
+type ReverseArray<T extends any[]> = T extends [infer L, ...infer R]
+  ? [...Reverse<R>, L]
+  : T;
+type FlipArguments<T extends (...args: any[]) => any> = T extends (
+  ...args: infer P
+) => infer _
+  ? (...args: ReverseArray<P>) => _
+  : never;
 /// Input END
 
 namespace FlipArgumentsTest {
@@ -19,13 +26,13 @@ namespace FlipArgumentsTest {
   ];
 
   type errors = [
-    // @ts-expect-error
+    // @ts-expect-error not a function type
     FlipArguments<"string">,
-    // @ts-expect-error
+    // @ts-expect-error not a function type
     FlipArguments<{ key: "value" }>,
-    // @ts-expect-error
+    // @ts-expect-error not a function type
     FlipArguments<["apple", "banana", 100, { a: 1 }]>,
-    // @ts-expect-error
+    // @ts-expect-error not a function type
     FlipArguments<null | undefined>,
   ];
 }
