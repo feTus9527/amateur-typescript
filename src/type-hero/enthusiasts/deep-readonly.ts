@@ -1,7 +1,13 @@
 // https://typehero.dev/challenge/deep-readonly
-// FIXME
+
 /// Input START
-type DeepReadonly<T> = any;
+type DeepReadonly<T extends Record<PropertyKey, unknown> | unknown[]> = {
+  readonly [K in keyof T]: T extends any
+    ? T[K] extends Record<PropertyKey, unknown> | unknown[]
+      ? DeepReadonly<T[K]>
+      : T[K]
+    : never;
+};
 /// Input END
 
 namespace DeepReadonlyTest {
@@ -9,7 +15,7 @@ namespace DeepReadonlyTest {
     Expect<Equal<DeepReadonly<X1>, Expected1>>,
     Expect<Equal<DeepReadonly<X2>, Expected2>>,
   ];
-
+  type a = DeepReadonly<X1>;
   type X1 = {
     a: () => 22;
     b: string;
