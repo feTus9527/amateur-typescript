@@ -1,7 +1,9 @@
 // https://typehero.dev/challenge/join
-// FIXME
+
 /// Input START
-type Join<T, U> = any;
+type Join<T, U extends string | number = ","> = T extends [infer L, ...infer R]
+  ? `${L & string}${Join<R, U> extends "" ? "" : `${U}${Join<R, U> & string}`}`
+  : "";
 /// Input END
 
 namespace JoinTest {
