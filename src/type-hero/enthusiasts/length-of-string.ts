@@ -1,7 +1,12 @@
 // https://typehero.dev/challenge/length-of-string
-// FIXME
+
 /// Input START
-type LengthOfString<S extends string> = any;
+type LengthOfString<
+  S extends string,
+  T extends any[] = [],
+> = S extends `${infer F}${infer _}`
+  ? LengthOfString<_, [...T, F]>
+  : T["length"];
 /// Input END
 
 namespace LengthOfStringTest {
