@@ -1,7 +1,7 @@
 // https://typehero.dev/challenge/last-of-array
-// FIXME
+
 /// Input START
-type Last<T extends any[]> = any;
+type Last<T extends any[]> = T extends [...infer L, infer R] ? R : never;
 /// Input END
 
 namespace LastOfArrayTest {
