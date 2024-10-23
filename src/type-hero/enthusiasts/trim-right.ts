@@ -1,7 +1,8 @@
 // https://typehero.dev/challenge/trim-right
-// FIXME
+
 /// Input START
-type TrimRight<S extends string> = any;
+type TrimRight<S extends string> =
+  S extends `${infer L}${" " | "\n" | "\t" | "\r"}` ? TrimRight<L> : S;
 /// Input END
 
 namespace TrimRightTest {
