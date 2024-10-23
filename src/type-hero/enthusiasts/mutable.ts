@@ -1,7 +1,9 @@
 // https://typehero.dev/challenge/mutable
-// FIXME
+
 /// Input START
-type Mutable<T> = any;
+type Mutable<T extends object> = {
+  -readonly [K in keyof T]: T[K];
+};
 /// Input END
 
 namespace MutableTest {
@@ -22,9 +24,9 @@ namespace MutableTest {
   ];
 
   type errors = [
-    // @ts-expect-error
+    // @ts-expect-error not an object
     Mutable<"string">,
-    // @ts-expect-error
+    // @ts-expect-error not an object
     Mutable<0>,
   ];
 }
