@@ -1,7 +1,7 @@
 // https://typehero.dev/challenge/pop
-// FIXME
+
 /// Input START
-type Pop<T extends any[]> = any;
+type Pop<T extends any[]> = T extends [...infer L, infer R] ? [...L] : T;
 /// Input END
 
 namespace PopTest {
