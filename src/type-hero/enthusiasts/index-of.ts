@@ -1,7 +1,14 @@
 // https://typehero.dev/challenge/indexof
-// FIXME
+
 /// Input START
-type IndexOf<T, U> = any;
+type IndexOf<T extends any[], U extends any, C extends any[] = []> = T extends [
+  infer L,
+  ...infer R,
+]
+  ? Equal<L, U> extends true
+    ? C["length"]
+    : IndexOf<R, U, [...C, 1]>
+  : -1;
 /// Input END
 
 namespace IndexOfTest {
