@@ -1,7 +1,12 @@
 // https://typehero.dev/challenge/tuple-to-nested-object
-// FIXME
+
 /// Input START
-type TupleToNestedObject<T, U> = any;
+type TupleToNestedObject<T extends PropertyKey[], U> = T extends [
+  infer L extends PropertyKey,
+  ...infer R extends PropertyKey[],
+]
+  ? Record<L, TupleToNestedObject<R, U>>
+  : U;
 /// Input END
 
 namespace TupleToNestedObjectTest {
