@@ -1,7 +1,16 @@
 // https://typehero.dev/challenge/getmiddleelement
-// FIXME
+
 /// Input START
-type GetMiddleElement<T> = any;
+type GetMiddleElement<T extends any[]> = T extends [
+  infer L,
+  ...infer M,
+  infer R,
+]
+  ? M extends []
+    ? [L, R]
+    : GetMiddleElement<M>
+  : T;
+
 /// Input END
 
 namespace GetMiddleElementTest {
