@@ -1,7 +1,17 @@
 // https://typehero.dev/challenge/lastindexof
-// FIXME
+
 /// Input START
-type LastIndexOf<T, U> = any;
+type LastIndexOf<
+  T extends any[],
+  U extends any,
+  C extends any[] = T,
+> = C extends [infer CL, ...infer CR]
+  ? T extends [...infer L, infer R]
+    ? Equal<R, U> extends true
+      ? CR["length"]
+      : LastIndexOf<L, U, CR>
+    : -1
+  : -1;
 /// Input END
 
 namespace LastIndexOfTest {
