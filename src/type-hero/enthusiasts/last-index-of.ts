@@ -1,16 +1,13 @@
 // https://typehero.dev/challenge/lastindexof
 
 /// Input START
-type LastIndexOf<
-  T extends any[],
-  U extends any,
-  C extends any[] = T,
-> = C extends [infer CL, ...infer CR]
-  ? T extends [...infer L, infer R]
-    ? Equal<R, U> extends true
-      ? CR["length"]
-      : LastIndexOf<L, U, CR>
-    : -1
+type LastIndexOf<T extends any[], U extends any> = T extends [
+  ...infer L,
+  infer R,
+]
+  ? Equal<R, U> extends true
+    ? L["length"]
+    : LastIndexOf<L, U>
   : -1;
 /// Input END
 
