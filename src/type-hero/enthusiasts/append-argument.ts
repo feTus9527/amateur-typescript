@@ -1,7 +1,11 @@
 // https://typehero.dev/challenge/append-argument
-// FIXME
+
 /// Input START
-type AppendArgument<Fn, A> = any;
+type AppendArgument<Fn extends (...args: any[]) => any, A> = Fn extends (
+  ...args: infer P
+) => infer R
+  ? (...args: [...P, A]) => R
+  : never;
 /// Input END
 
 namespace AppendArgumentTest {
@@ -14,7 +18,7 @@ namespace AppendArgumentTest {
   type cases = [
     Expect<Equal<Case1, Result1>>,
     Expect<Equal<Case2, Result2>>,
-    // @ts-expect-error
+    // @ts-expect-error unknown is not a function
     AppendArgument<unknown, undefined>,
   ];
 }
