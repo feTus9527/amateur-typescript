@@ -1,7 +1,9 @@
 // https://typehero.dev/challenge/append-to-object
-// FIXME
+
 /// Input START
-type AppendToObject<T, U, V> = any;
+type AppendToObject<T, U extends string, V> = {
+  [K in keyof T | U]: K extends keyof T ? T[K] : V;
+};
 /// Input END
 
 namespace AppendToObjectTest {
