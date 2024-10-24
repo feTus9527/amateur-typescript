@@ -1,9 +1,14 @@
 // https://typehero.dev/challenge/merge
 // FIXME
 /// Input START
-type Merge<F, S> = any;
+type Merge<F extends object, S extends object> = {
+  [K in keyof (F & S)]: K extends keyof S
+    ? S[K]
+    : K extends keyof F
+      ? F[K]
+      : never;
+};
 /// Input END
-
 namespace MergeTest {
   type Foo = {
     a: number;
