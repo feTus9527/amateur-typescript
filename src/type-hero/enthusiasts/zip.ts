@@ -1,7 +1,11 @@
 // https://typehero.dev/challenge/zip
-// FIXME
+
 /// Input START
-type Zip<T, U> = any;
+type Zip<T, U> = T extends [infer TL, ...infer TR]
+  ? U extends [infer UL, ...infer UR]
+    ? [[TL, UL], ...Zip<TR, UR>]
+    : []
+  : [];
 /// Input END
 
 namespace ZipTest {
