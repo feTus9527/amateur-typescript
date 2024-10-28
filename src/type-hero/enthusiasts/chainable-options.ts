@@ -1,9 +1,16 @@
 // https://typehero.dev/challenge/chainable-options
-// FIXME
+
 /// Input START
-type Chainable = {
-  option(key: string, value: any): any;
-  get(): any;
+type Chainable<T = {}> = {
+  option<K extends string, V>(
+    key: Exclude<K, keyof T>,
+    value: V,
+  ): Chainable<
+    Omit<T, K> & {
+      [P in K]: V;
+    }
+  >;
+  get(): T;
 };
 /// Input END
 
@@ -18,13 +25,13 @@ namespace ChainableOptionsTest {
 
   const result2 = a
     .option("name", "another name")
-    // @ts-expect-error
+    // @ts-expect-error key name already exists
     .option("name", "last name")
     .get();
 
   const result3 = a
     .option("name", "another name")
-    // @ts-expect-error
+    // @ts-expect-error key name already exists
     .option("name", 123)
     .get();
 
