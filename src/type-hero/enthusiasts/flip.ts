@@ -1,7 +1,9 @@
 // https://typehero.dev/challenge/flip
-// FIXME
+
 /// Input START
-type Flip<T> = any;
+type Flip<T extends Record<PropertyKey, any>> = {
+  [K in keyof T as `${T[K]}`]: K;
+};
 /// Input END
 
 namespace FlipTest {
