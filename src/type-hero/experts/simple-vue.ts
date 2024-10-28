@@ -1,17 +1,25 @@
 // https://typehero.dev/challenge/simple-vue
-// FIXME
+
 /// Input START
-declare function SimpleVue(options: any): any;
+type GetComputed<T> = {
+  [K in keyof T]: T[K] extends (...args: any[]) => infer R ? R : never;
+};
+
+declare function SimpleVue<D, C, M>(options: {
+  data: (this: void) => D;
+  computed: C & ThisType<D>;
+  methods: M & ThisType<D & GetComputed<C> & M>;
+}): any;
 /// Input END
 
 namespace SimpleVueTest {
   SimpleVue({
     data() {
-      // @ts-expect-error
+      // @ts-expect-error cannot use this in data()
       this.firstname;
-      // @ts-expect-error
+      // @ts-expect-error cannot use this in data()
       this.getRandom();
-      // @ts-expect-error
+      // @ts-expect-error cannot use this in data()
       this.data();
 
       return {
