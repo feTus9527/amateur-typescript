@@ -2,7 +2,7 @@
 
 /// Input START
 type ReverseArray<T extends any[]> = T extends [infer L, ...infer R]
-  ? [...Reverse<R>, L]
+  ? [...ReverseArray<R>, L]
   : T;
 type FlipArguments<T extends (...args: any[]) => any> = T extends (
   ...args: infer P
